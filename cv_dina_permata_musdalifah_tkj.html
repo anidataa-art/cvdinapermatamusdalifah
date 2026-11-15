@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Dina Permata Musdalifah - Teknik Komputer & Jaringan</title>
+    
+    <!-- Google Fonts: Quicksand & Poppins untuk kesan manis, rapi, dan ramah -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome untuk ikon jaringan, kecantikan, dan dekorasi lucu -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Konfigurasi Warna & Font Kustom Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Quicksand', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        pinky: {
+                            50: '#FFF5F8',
+                            100: '#FFE4EE',
+                            200: '#FFC6DC',
+                            300: '#FF99C0',
+                            400: '#FF66A1',
+                            500: '#F43F85',
+                            600: '#DB2777',
+                        },
+                        peach: '#FFD8CC',
+                        lilac: '#F3E8FF'
+                    },
+                    animation: {
+                        'float-slow': 'float 6s ease-in-out infinite',
+                        'float-medium': 'float 4s ease-in-out infinite',
+                        'float-fast': 'float 3s ease-in-out infinite',
+                        'wiggle': 'wiggle 1.8s ease-in-out infinite',
+                        'bounce-soft': 'bounceSoft 2s infinite',
+                        'pulse-glow': 'pulseGlow 2.5s infinite',
+                        'spin-slow': 'spin 12s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-15px) rotate(5deg)' },
+                        },
+                        wiggle: {
+                            '0%, 100%': { transform: 'rotate(-4deg) scale(1)' },
+                            '25%': { transform: 'rotate(4deg) scale(1.03)' },
+                            '50%': { transform: 'rotate(-3deg) scale(1.05)' },
+                            '75%': { transform: 'rotate(3deg) scale(1.03)' },
+                        },
+                        bounceSoft: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-8px)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { boxShadow: '0 0 15px rgba(244, 63, 133, 0.35)' },
+                            '50%': { boxShadow: '0 0 28px rgba(244, 63, 133, 0.7)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Gaya Tambahan untuk Animasi Lucu, Kursor Sparkle, & Kotak Kado -->
+    <style>
+        body {
+            background-color: #FFF5F8;
+            background-image: 
+                radial-gradient(#FFC6DC 1.5px, transparent 1.5px),
+                radial-gradient(#FFE4EE 1.5px, #FFF5F8 1.5px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+            overflow-x: hidden;
+        }
+
+        /* Kartu Kawaii dengan bayangan lembut dan efek pantul saat hover */
+        .kawaii-card {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            border: 2.5px solid #FFC6DC;
+            box-shadow: 0 10px 25px -5px rgba(244, 63, 133, 0.12), 0 4px 0 #FFC6DC;
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .kawaii-card:hover {
+            transform: translateY(-6px) scale(1.01);
+            border-color: #FF66A1;
+            box-shadow: 0 16px 32px -6px rgba(244, 63, 133, 0.22), 0 6px 0 #FF66A1;
+        }
+
+        /* Tombol Lucu 3D */
+        .btn-kawaii {
+            box-shadow: 0 4px 0 #DB2777;
+            transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .btn-kawaii:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 #DB2777;
+        }
+        .btn-kawaii:active {
+            transform: translateY(3px);
+            box-shadow: 0 1px 0 #DB2777;
+        }
+
+        /* Efek Ketik Kursor */
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 0.8s infinite;
+            color: #F43F85;
+            font-weight: bold;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Animasi Reveal saat Scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: all 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Partikel Sparkle saat Kursor Bergerak / Klik */
+        .sparkle-particle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            animation: sparkleFade 0.9s forwards ease-out;
+        }
+        @keyframes sparkleFade {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0) scale(1) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(var(--tx), var(--ty)) scale(0.2) rotate(180deg);
+            }
+        }
+
+        /* Animasi Tutup Kado Terbuka */
+        .gift-lid {
+            transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform-origin: left bottom;
+        }
+        .gift-opened .gift-lid {
+            transform: translateY(-48px) translateX(-18px) rotate(-28deg);
+        }
+        .gift-opened .gift-box-wrapper {
+            animation: none !important;
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body class="text-slate-700 selection:bg-pinky-200 selection:text-pinky-600 relative">
+
+    <!-- Dekorasi Latar Belakang Mengambang (Floating Cute Elements) -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
+        <div class="absolute top-16 left-[6%] text-pinky-300 text-2xl animate-float-slow opacity-70">
+            <i class="fa-solid fa-heart"></i>
+        </div>
+        <div class="absolute top-40 right-[8%] text-pinky-400 text-3xl animate-float-medium opacity-60">
+            <i class="fa-solid fa-wifi"></i>
+        </div>
+        <div class="absolute top-[45%] left-[4%] text-amber-300 text-2xl animate-float-fast opacity-75">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+        </div>
+        <div class="absolute top-[60%] right-[5%] text-pinky-300 text-3xl animate-float-slow opacity-70">
+            <i class="fa-solid fa-network-wired"></i>
+        </div>
+        <div class="absolute bottom-32 left-[10%] text-pinky-400 text-2xl animate-float-medium opacity-65">
+            <i class="fa-solid fa-star"></i>
+        </div>
+        <div class="absolute bottom-20 right-[12%] text-rose-300 text-3xl animate-float-fast opacity-70">
+            <i class="fa-solid fa-ribbon"></i>
+        </div>
+    </div>
+
+    <!-- Toast Notification untuk Salin Kontak -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 bg-white border-2 border-pinky-400 text-pinky-600 px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3 font-semibold">
+        <span class="w-8 h-8 rounded-full bg-pinky-100 flex items-center justify-center text-pinky-500">
+            <i class="fa-solid fa-check"></i>
+        </span>
+        <span id="toast-message">Tersalin ke clipboard!</span>
+    </div>
+
+    <!-- Navigasi Atas Menggemaskan -->
+    <header class="sticky top-3 z-40 px-4 max-w-5xl mx-auto">
+        <nav class="bg-white/90 backdrop-blur-md border-2 border-pinky-200 rounded-full px-5 py-2.5 shadow-md flex items-center justify-between">
+            <a href="#beranda" class="flex items-center gap-2 font-heading font-bold text-pinky-500 text-base sm:text-lg">
+                <span class="w-8 h-8 rounded-full bg-pinky-100 flex items-center justify-center text-pinky-500 animate-bounce-soft">
+                    <i class="fa-solid fa-ribbon"></i>
+                </span>
+                <span>Dina<span class="text-slate-700">.TKJ</span></span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-600">
+                <a href="#tentang" class="hover:text-pinky-500 transition-colors">Tentang Aku</a>
+                <a href="#keahlian" class="hover:text-pinky-500 transition-colors">Keahlian TKJ</a>
+                <a href="#pengalaman" class="hover:text-pinky-500 transition-colors">Pengalaman & Pendidikan</a>
+                <a href="#kontak" class="hover:text-pinky-500 transition-colors">Kontak</a>
+            </div>
+
+            <a href="#kado-spesial" class="bg-gradient-to-r from-pinky-400 to-pinky-500 text-white text-xs sm:text-sm font-bold px-4 py-2 rounded-full btn-kawaii flex items-center gap-1.5">
+                <i class="fa-solid fa-gift animate-wiggle"></i>
+                <span>Kado Untukmu</span>
+            </a>
+        </nav>
+    </header>
+
+    <!-- Konten Utama -->
+    <main class="relative z-10 max-w-5xl mx-auto px-4 pt-8 pb-20 space-y-12">
+
+        <!-- HERO SECTION / PROFIL UTAMA -->
+        <section id="beranda" class="kawaii-card rounded-[2rem] p-6 sm:p-10 relative overflow-hidden">
+            <!-- Pita sudut dekoratif -->
+            <div class="absolute -top-6 -right-6 w-28 h-28 bg-pinky-100 rounded-full opacity-70"></div>
+            <div class="absolute -bottom-8 -left-8 w-32 h-32 bg-lilac rounded-full opacity-70"></div>
+
+            <div class="relative flex flex-col md:flex-row items-center gap-8">
+                <!-- Bingkai Foto / Avatar Lucu Bertema TKJ & Make Up -->
+                <div class="relative flex-shrink-0 group">
+                    <div class="w-44 h-44 sm:w-52 sm:h-52 rounded-full bg-gradient-to-tr from-pinky-300 via-pinky-200 to-amber-100 p-2 shadow-lg animate-pulse-glow">
+                        <div class="w-full h-full rounded-full bg-white flex flex-col items-center justify-center relative overflow-hidden border-4 border-white">
+                            <!-- Ilustrasi SVG Karakter Cewek TKJ & Make Up Lucu -->
+                            <svg viewBox="0 0 200 200" class="w-full h-full">
+                                <defs>
+                                    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#FFE4EE"/>
+                                        <stop offset="100%" stop-color="#FFF5F8"/>
+                                    </linearGradient>
+                                </defs>
+                                <rect width="200" height="200" fill="url(#bgGrad)"/>
+                                <!-- Rambut Belakang -->
+                                <path d="M45 95 C35 145, 45 180, 70 185 L130 185 C155 180, 165 145, 155 95 Z" fill="#4A3540"/>
+                                <!-- Baju / Seragam Pastel Pink -->
+                                <path d="M55 195 C55 155, 145 155, 145 195 Z" fill="#FF66A1"/>
+                                <path d="M82 158 L100 178 L118 158 Z" fill="#FFFFFF"/>
+                                <!-- Leher & Wajah -->
+                                <rect x="90" y="135" width="20" height="25" rx="8" fill="#FFE0D2"/>
+                                <circle cx="100" cy="102" r="42" fill="#FFE8DC"/>
+                                <!-- Pipi Merona (Blush On) -->
+                                <ellipse cx="76" cy="112" rx="8" ry="5" fill="#FF99C0" opacity="0.75"/>
+                                <ellipse cx="124" cy="112" rx="8" ry="5" fill="#FF99C0" opacity="0.75"/>
+                                <!-- Mata Berbinar -->
+                                <circle cx="83" cy="100" r="5.5" fill="#3B2832"/>
+                                <circle cx="81.5" cy="98" r="2" fill="#FFFFFF"/>
+                                <circle cx="117" cy="100" r="5.5" fill="#3B2832"/>
+                                <circle cx="115.5" cy="98" r="2" fill="#FFFFFF"/>
+                                <!-- Senyum Manis -->
+                                <path d="M92 117 Q100 125 108 117" stroke="#F43F85" stroke-width="3" fill="none" stroke-linecap="round"/>
+                                <!-- Poni Rambut -->
+                                <path d="M58 95 C58 55, 142 55, 142 95 C132 75, 115 85, 100 72 C85 85, 68 75, 58 95 Z" fill="#4A3540"/>
+                                <!-- Pita Lucu di Kepala -->
+                                <path d="M128 60 L146 50 L142 68 Z" fill="#F43F85"/>
+                                <path d="M128 60 L116 46 L114 64 Z" fill="#F43F85"/>
+                                <circle cx="128" cy="60" r="4.5" fill="#FFC6DC"/>
+                                <!-- Headset Teknis Kecil -->
+                                <path d="M56 96 C56 48, 144 48, 144 96" stroke="#FF66A1" stroke-width="5" fill="none"/>
+                                <rect x="50" y="88" width="10" height="22" rx="5" fill="#F43F85"/>
+                                <rect x="140" y="88" width="10" height="22" rx="5" fill="#F43F85"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Lencana Melayang di Sekitar Foto -->
+                    <div class="absolute -top-2 -left-2 bg-white border-2 border-pinky-300 px-3 py-1 rounded-full shadow-md text-xs font-bold text-pinky-500 flex items-center gap-1 animate-float-fast">
+                        <i class="fa-solid fa-router text-pinky-400"></i>
+                        <span>TKJ Enthusiast</span>
+                    </div>
+                    <div class="absolute -bottom-2 -right-2 bg-white border-2 border-pinky-300 px-3 py-1 rounded-full shadow-md text-xs font-bold text-rose-500 flex items-center gap-1 animate-float-medium">
+                        <i class="fa-solid fa-wand-sparkles text-amber-400"></i>
+                        <span>Beauty Lover</span>
+                    </div>
+                </div>
+
+                <!-- Informasi Utama & Efek Ketik -->
+                <div class="text-center md:text-left flex-1 space-y-4">
+                    <div class="inline-flex items-center gap-2 bg-pinky-100 text-pinky-600 px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold">
+                        <span class="w-2.5 h-2.5 rounded-full bg-green-400 animate-ping"></span>
+                        <span>Siap Bekerja & Berkontribusi!</span>
+                    </div>
+
+                    <h1 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 leading-tight">
+                        Halo, Aku <span class="text-transparent bg-clip-text bg-gradient-to-r from-pinky-500 to-rose-400">Dina Permata Musdalifah</span>!
+                    </h1>
+
+                    <p class="text-base sm:text-lg font-bold text-pinky-500 min-h-[28px]">
+                        <span id="typing-text" class="typing-cursor"></span>
+                    </p>
+
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl">
+                        Lulusan jurusan <strong>Teknik Komputer dan Jaringan (TKJ)</strong> yang teliti dalam merancang konektivitas jaringan, perakitan perangkat keras, serta memiliki sentuhan kreativitas tinggi dari kecintaan pada dunia <em>make up</em>.
+                    </p>
+
+                    <!-- Tombol Aksi Cepat -->
+                    <div class="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-3">
+                        <a href="https://wa.me/6283165510021?text=Halo%20Dina%20Permata%20Musdalifah,%20saya%20tertarik%20dengan%20CV%20lamaran%20kerja%20Anda." target="_blank" rel="noopener noreferrer" class="bg-gradient-to-r from-emerald-400 to-green-500 text-white font-bold px-5 py-3 rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all flex items-center gap-2 text-sm">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>Chat WhatsApp</span>
+                        </a>
+
+                        <a href="mailto:dinapermatamusdalifah67@gmail.com?subject=Undangan%20Interview%20-%20Dina%20Permata%20Musdalifah" class="bg-gradient-to-r from-pinky-400 to-pinky-500 text-white font-bold px-5 py-3 rounded-2xl btn-kawaii flex items-center gap-2 text-sm">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>Kirim Email</span>
+                        </a>
+
+                        <button onclick="copyText('+62 831-6551-0021', 'Nomor WhatsApp berhasil disalin!')" class="bg-pinky-50 hover:bg-pinky-100 text-pinky-600 border-2 border-pinky-200 font-bold px-4 py-2.5 rounded-2xl transition-all flex items-center gap-2 text-sm">
+                            <i class="fa-regular fa-copy"></i>
+                            <span>Salin No. HP</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GRID 2 KOLOM: TENTANG AKU & INFORMASI KONTAK -->
+        <div id="tentang" class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            
+            <!-- Tentang Aku (About Me) -->
+            <section class="kawaii-card rounded-[2rem] p-6 sm:p-8 lg:col-span-2 reveal">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-11 h-11 rounded-2xl bg-pinky-100 text-pinky-500 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <div>
+                        <h2 class="font-heading text-xl sm:text-2xl font-bold text-slate-800">Tentang Aku</h2>
+                        <p class="text-xs text-pinky-500 font-semibold">Perpaduan Ketelitian Teknis & Sentuhan Estetika</p>
+                    </div>
+                </div>
+
+                <div class="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
+                    <p>
+                        Saya adalah pribadi yang ramah, komunikatif, dan memiliki semangat belajar tinggi di bidang <strong>Teknologi Informasi & Jaringan Komputer</strong>. Sebagai lulusan <strong>TKJ</strong>, saya terbiasa menangani instalasi jaringan lokal (LAN), konfigurasi dasar router, perakitan PC, hingga troubleshooting sistem operasi dengan sabar dan sistematis.
+                    </p>
+                    <p>
+                        Di luar dunia kabel dan konfigurasi IP, saya juga memiliki ketertarikan besar pada dunia <strong>make up dan kecantikan</strong>! Bagi saya, merias wajah dan merapikan jaringan komputer punya kesamaan yang unik: keduanya membutuhkan <em>ketelitian detail, kesabaran, kerapian (cable management yang cantik!), serta rasa percaya diri</em> untuk memberikan hasil terbaik bagi orang lain.
+                    </p>
+                </div>
+
+                <!-- Highlight Karakter Diri -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6">
+                    <div class="bg-pinky-50 border border-pinky-200 rounded-2xl p-3 text-center hover:bg-pinky-100 transition-colors">
+                        <i class="fa-solid fa-magnifying-glass-chart text-pinky-500 text-xl mb-1"></i>
+                        <p class="font-bold text-xs text-slate-700">Teliti & Rapi</p>
+                    </div>
+                    <div class="bg-pinky-50 border border-pinky-200 rounded-2xl p-3 text-center hover:bg-pinky-100 transition-colors">
+                        <i class="fa-solid fa-face-smile-beam text-amber-400 text-xl mb-1"></i>
+                        <p class="font-bold text-xs text-slate-700">Ramah & Ceria</p>
+                    </div>
+                    <div class="bg-pinky-50 border border-pinky-200 rounded-2xl p-3 text-center hover:bg-pinky-100 transition-colors">
+                        <i class="fa-solid fa-screwdriver-wrench text-pinky-500 text-xl mb-1"></i>
+                        <p class="font-bold text-xs text-slate-700">Problem Solver</p>
+                    </div>
+                    <div class="bg-pinky-50 border border-pinky-200 rounded-2xl p-3 text-center hover:bg-pinky-100 transition-colors">
+                        <i class="fa-solid fa-palette text-rose-400 text-xl mb-1"></i>
+                        <p class="font-bold text-xs text-slate-700">Kreatif & Estetik</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Kartu Informasi Kontak & Biodata Singkat -->
+            <section id="kontak" class="kawaii-card rounded-[2rem] p-6 sm:p-8 flex flex-col justify-between reveal">
+                <div>
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-11 h-11 rounded-2xl bg-pinky-100 text-pinky-500 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-address-card"></i>
+                        </div>
+                        <h2 class="font-heading text-xl font-bold text-slate-800">Info Kontak</h2>
+                    </div>
+
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-start gap-3">
+                            <span class="w-8 h-8 rounded-xl bg-pinky-50 text-pinky-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i class="fa-solid fa-user"></i>
+                            </span>
+                            <div>
+                                <p class="text-xs text-slate-400 font-semibold">Nama Lengkap</p>
+                                <p class="font-bold text-slate-700">Dina Permata Musdalifah</p>
+                            </div>
+                        </li>
+
+                        <li class="flex items-start gap-3">
+                            <span class="w-8 h-8 rounded-xl bg-pinky-50 text-pinky-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </span>
+                            <div>
+                                <p class="text-xs text-slate-400 font-semibold">Kompetensi Keahlian</p>
+                                <p class="font-bold text-slate-700">Teknik Komputer & Jaringan (TKJ)</p>
+                            </div>
+                        </li>
+
+                        <li class="flex items-start gap-3">
+                            <span class="w-8 h-8 rounded-xl bg-green-50 text-green-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </span>
+                            <div class="flex-1">
+                                <p class="text-xs text-slate-400 font-semibold">WhatsApp</p>
+                                <a href="https://wa.me/6283165510021" target="_blank" rel="noopener noreferrer" class="font-bold text-slate-700 hover:text-green-600 transition-colors">
+                                    +62 831-6551-0021
+                                </a>
+                            </div>
+                        </li>
+
+                        <li class="flex items-start gap-3">
+                            <span class="w-8 h-8 rounded-xl bg-pinky-50 text-pinky-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <i class="fa-solid fa-envelope"></i>
+                            </span>
+                            <div class="min-w-0 flex-1">
+                                <p class="text-xs text-slate-400 font-semibold">Email</p>
+                                <button onclick="copyText('dinapermatamusdalifah67@gmail.com', 'Alamat email berhasil disalin!')" class="text-left font-bold text-slate-700 hover:text-pinky-500 transition-colors break-all">
+                                    dinapermatamusdalifah67@gmail.com
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="mt-6 pt-4 border-t border-pinky-100">
+                    <div class="bg-gradient-to-r from-pinky-50 to-lilac rounded-2xl p-3.5 flex items-center gap-3">
+                        <i class="fa-solid fa-sparkles text-pinky-500 text-lg animate-spin-slow"></i>
+                        <p class="text-xs font-semibold text-slate-600">
+                            Hobi: <span class="text-pinky-600 font-bold">Make Up Artistry, Merakit PC & Eksplorasi Jaringan</span>
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- KEAHLIAN TEKNIS TKJ & SOFT SKILLS -->
+        <section id="keahlian" class="kawaii-card rounded-[2rem] p-6 sm:p-8 reveal">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-11 h-11 rounded-2xl bg-pinky-100 text-pinky-500 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-network-wired"></i>
+                    </div>
+                    <div>
+                        <h2 class="font-heading text-xl sm:text-2xl font-bold text-slate-800">Keahlian TKJ & Kreativitas</h2>
+                        <p class="text-xs text-pinky-500 font-semibold">Kompetensi teknis yang siap diterapkan di dunia kerja</p>
+                    </div>
+                </div>
+                <span class="inline-flex items-center gap-1.5 text-xs font-bold bg-pinky-100 text-pinky-600 px-3 py-1 rounded-full self-start sm:self-center">
+                    <i class="fa-solid fa-star text-amber-400"></i> Terampil & Cekatan
+                </span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Daftar Skill Bar Interaktif -->
+                <div class="space-y-4">
+                    <div class="bg-pinky-50/70 p-4 rounded-2xl border border-pinky-100">
+                        <div class="flex justify-between text-sm font-bold mb-1.5">
+                            <span class="flex items-center gap-2 text-slate-700">
+                                <i class="fa-solid fa-ethernet text-pinky-500"></i> Instalasi & Crimping Kabel LAN (UTP/STP)
+                            </span>
+                            <span class="text-pinky-500">95%</span>
+                        </div>
+                        <div class="w-full bg-pinky-100 h-3 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-pinky-400 to-pinky-500 h-full rounded-full transition-all duration-1000" style="width: 95%"></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-pinky-50/70 p-4 rounded-2xl border border-pinky-100">
+                        <div class="flex justify-between text-sm font-bold mb-1.5">
+                            <span class="flex items-center gap-2 text-slate-700">
+                                <i class="fa-solid fa-server text-pinky-500"></i> Konfigurasi MikroTik, Router & Wi-Fi
+                            </span>
+                            <span class="text-pinky-500">88%</span>
+                        </div>
+                        <div class="w-full bg-pinky-100 h-3 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-pinky-400 to-rose-400 h-full rounded-full transition-all duration-1000" style="width: 88%"></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-pinky-50/70 p-4 rounded-2xl border border-pinky-100">
+                        <div class="flex justify-between text-sm font-bold mb-1.5">
+                            <span class="flex items-center gap-2 text-slate-700">
+                                <i class="fa-solid fa-desktop text-pinky-500"></i> Perakitan PC, Instalasi OS & Troubleshooting
+                            </span>
+                            <span class="text-pinky-500">92%</span>
+                        </div>
+                        <div class="w-full bg-pinky-100 h-3 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-pinky-400 to-pinky-500 h-full rounded-full transition-all duration-1000" style="width: 92%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kartu Keahlian Tambahan -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                    <div class="p-4 rounded-2xl border-2 border-pinky-100 bg-white hover:border-pinky-300 transition-all">
+                        <div class="w-9 h-9 rounded-xl bg-pinky-100 text-pinky-500 flex items-center justify-center mb-2">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-800 text-sm mb-1">Administrasi Jaringan</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed">Manajemen IP Address, Subnetting, DHCP, Hotspot, dan dasar keamanan jaringan.</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl border-2 border-pinky-100 bg-white hover:border-pinky-300 transition-all">
+                        <div class="w-9 h-9 rounded-xl bg-purple-100 text-purple-500 flex items-center justify-center mb-2">
+                            <i class="fa-solid fa-file-word"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-800 text-sm mb-1">Administrasi Perkantoran</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed">Mahir Microsoft Word, Excel, PowerPoint, serta dokumentasi topologi jaringan.</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl border-2 border-pinky-100 bg-white hover:border-pinky-300 transition-all">
+                        <div class="w-9 h-9 rounded-xl bg-amber-100 text-amber-500 flex items-center justify-center mb-2">
+                            <i class="fa-solid fa-headset"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-800 text-sm mb-1">IT Support & Pelayanan</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed">Komunikasi ramah dan sabar saat membantu pengguna mengatasi kendala teknis.</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl border-2 border-pinky-100 bg-white hover:border-pinky-300 transition-all">
+                        <div class="w-9 h-9 rounded-xl bg-rose-100 text-rose-500 flex items-center justify-center mb-2">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-800 text-sm mb-1">Make Up & Estetika</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed">Berpenampilan rapi, memperhatikan detail visual, dan memiliki cita rasa estetika tinggi.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PENDIDIKAN & PENGALAMAN PRAKTIK TKJ -->
+        <section id="pengalaman" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Riwayat Pendidikan -->
+            <div class="kawaii-card rounded-[2rem] p-6 sm:p-8 reveal">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-11 h-11 rounded-2xl bg-pinky-100 text-pinky-500 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-school"></i>
+                    </div>
+                    <h2 class="font-heading text-xl font-bold text-slate-800">Pendidikan</h2>
+                </div>
+
+                <div class="relative pl-6 border-l-2 border-pinky-200 space-y-6">
+                    <div class="relative">
+                        <span class="w-4 h-4 rounded-full bg-pinky-500 border-4 border-pinky-100 absolute -left-[33px] top-1"></span>
+                        <span class="text-xs font-bold text-pinky-500 bg-pinky-50 px-2.5 py-0.5 rounded-full">Jurusan Unggulan</span>
+                        <h3 class="font-bold text-slate-800 text-base mt-1">SMK — Teknik Komputer dan Jaringan (TKJ)</h3>
+                        <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+                            Mempelajari perancangan jaringan lokal (LAN/WAN), konfigurasi router MikroTik, administrasi sistem jaringan, serta perakitan dan perawatan komputer.
+                        </p>
+                    </div>
+
+                    <div class="relative">
+                        <span class="w-4 h-4 rounded-full bg-pinky-300 border-4 border-pinky-100 absolute -left-[33px] top-1"></span>
+                        <h3 class="font-bold text-slate-800 text-base">Pelatihan & Praktikum Mandiri</h3>
+                        <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+                            Simulasi jaringan dengan Cisco Packet Tracer, manajemen bandwidth dasar, serta pengembangan personal branding & tata rias wajah.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pengalaman Praktik & Proyek TKJ -->
+            <div class="kawaii-card rounded-[2rem] p-6 sm:p-8 reveal">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-11 h-11 rounded-2xl bg-pinky-100 text-pinky-500 flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h2 class="font-heading text-xl font-bold text-slate-800">Pengalaman Praktik</h2>
+                </div>
+
+                <div class="relative pl-6 border-l-2 border-pinky-200 space-y-6">
+                    <div class="relative">
+                        <span class="w-4 h-4 rounded-full bg-pinky-500 border-4 border-pinky-100 absolute -left-[33px] top-1"></span>
+                        <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2.5 py-0.5 rounded-full">Praktik Kerja Lapangan (PKL)</span>
+                        <h3 class="font-bold text-slate-800 text-base mt-1">Teknisi Jaringan & IT Support</h3>
+                        <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+                            Membantu instalasi kabel jaringan UTP, pengecekan konektivitas internet, instalasi ulang sistem operasi Windows/Linux, serta perawatan rutin perangkat komputer kantor.
+                        </p>
+                    </div>
+
+                    <div class="relative">
+                        <span class="w-4 h-4 rounded-full bg-pinky-300 border-4 border-pinky-100 absolute -left-[33px] top-1"></span>
+                        <h3 class="font-bold text-slate-800 text-base">Uji Kompetensi Keahlian (UKK) TKJ</h3>
+                        <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+                            Berhasil membangun jaringan hotspot menggunakan MikroTik, konfigurasi VLAN, pembagian IP otomatis (DHCP), serta pengujian konektivitas klien dengan hasil memuaskan.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FITUR SPESIAL DI AKHIR: KADO PENYEMANGAT INTERAKTIF -->
+        <section id="kado-spesial" class="kawaii-card rounded-[2.5rem] p-8 sm:p-12 text-center relative overflow-hidden bg-gradient-to-b from-white via-pinky-50/70 to-pinky-100/60 reveal">
+            <!-- Dekorasi Bintang -->
+            <div class="absolute top-6 left-8 text-amber-300 text-2xl animate-pulse">
+                <i class="fa-solid fa-star"></i>
+            </div>
+            <div class="absolute bottom-8 right-10 text-pinky-400 text-2xl animate-bounce-soft">
+                <i class="fa-solid fa-heart"></i>
+            </div>
+
+            <div class="max-w-xl mx-auto space-y-4">
+                <span class="inline-block bg-white border border-pinky-300 text-pinky-600 text-xs font-bold px-4 py-1.5 rounded-full shadow-sm">
+                    ✨ Kejutan Kecil di Akhir CV ✨
+                </span>
+
+                <h2 class="font-heading text-2xl sm:text-3xl font-bold text-slate-800">
+                    Ada Kado Penyemangat Untukmu!
+                </h2>
+                <p class="text-slate-600 text-sm sm:text-base">
+                    Terima kasih sudah meluangkan waktu melihat CV Dina. Sebelum pergi, klik kotak kado di bawah ini untuk membuka pesan spesial penyemangat harimu!
+                </p>
+
+                <!-- Kotak Kado Interaktif SVG -->
+                <div id="gift-container" class="pt-6 pb-2 flex flex-col items-center justify-center">
+                    <button id="gift-button" onclick="openGiftBox()" aria-label="Buka Kado Penyemangat" class="gift-box-wrapper group relative cursor-pointer focus:outline-none animate-wiggle hover:scale-105 transition-transform">
+                        <!-- Cahaya di belakang kado -->
+                        <div class="absolute inset-0 bg-pinky-300 rounded-full blur-2xl opacity-40 group-hover:opacity-70 transition-opacity"></div>
+                        
+                        <svg width="170" height="170" viewBox="0 0 200 200" class="relative z-10 drop-shadow-xl">
+                            <!-- Badan Kotak Kado -->
+                            <rect x="40" y="85" width="120" height="90" rx="14" fill="#FF66A1"/>
+                            <rect x="40" y="85" width="120" height="14" fill="#F43F85" opacity="0.45"/>
+                            <!-- Pita Vertikal Badan Kado -->
+                            <rect x="88" y="85" width="24" height="90" fill="#FFF5F8"/>
+                            <rect x="93" y="85" width="14" height="90" fill="#FFE4EE"/>
+
+                            <!-- Tutup Kotak Kado (Bisa Terangkat) -->
+                            <g class="gift-lid">
+                                <rect x="32" y="62" width="136" height="28" rx="10" fill="#F43F85"/>
+                                <rect x="88" y="62" width="24" height="28" fill="#FFFFFF"/>
+                                <!-- Simpul Pita Atas -->
+                                <path d="M100 62 C75 28, 45 45, 75 62 Z" fill="#FFC6DC"/>
+                                <path d="M100 62 C125 28, 155 45, 125 62 Z" fill="#FFC6DC"/>
+                                <circle cx="100" cy="60" r="9" fill="#FFFFFF"/>
+                            </g>
+                        </svg>
+
+                        <span id="gift-hint" class="mt-2 inline-flex items-center gap-1.5 bg-pinky-500 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-md">
+                            <i class="fa-solid fa-hand-pointer"></i> Klik Kadonya!
+                        </span>
+                    </button>
+                </div>
+
+                <!-- Kartu Ucapan Penyemangat (Muncul setelah kado dibuka) -->
+                <div id="encouragement-card" class="hidden transform scale-90 opacity-0 transition-all duration-700 mt-6">
+                    <div class="bg-white border-2 border-pinky-300 rounded-3xl p-6 sm:p-8 shadow-xl relative text-center space-y-4">
+                        <div class="w-14 h-14 mx-auto rounded-full bg-gradient-to-tr from-pinky-400 to-rose-400 text-white flex items-center justify-center text-2xl shadow-md animate-bounce-soft">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+
+                        <h3 class="font-heading text-xl sm:text-2xl font-bold text-pinky-600">
+                            Semangat Terus Ya, Orang Hebat! 🌸
+                        </h3>
+
+                        <p id="encouragement-quote" class="text-slate-600 text-sm sm:text-base leading-relaxed italic font-medium">
+                            "Terima kasih sudah bekerja keras hari ini! Semoga setiap langkah, usaha, dan kebaikanmu selalu dilancarkan seperti koneksi jaringan tanpa hambatan, dan harimu selalu cerah bersinar. Jangan lupa tersenyum dan jaga kesehatan ya!"
+                        </p>
+
+                        <div class="pt-2 flex flex-wrap items-center justify-center gap-3">
+                            <button onclick="changeQuote()" class="bg-pinky-100 hover:bg-pinky-200 text-pinky-600 text-xs font-bold px-4 py-2 rounded-full transition-colors flex items-center gap-1.5">
+                                <i class="fa-solid fa-rotate"></i> Pesan Penyemangat Lainnya
+                            </button>
+                            <a href="https://wa.me/6283165510021?text=Halo%20Dina,%20aku%20sudah%20buka%20kado%20penyemangat%20di%20CV%20kamu!" target="_blank" rel="noopener noreferrer" class="bg-pinky-500 hover:bg-pinky-600 text-white text-xs font-bold px-4 py-2 rounded-full transition-colors flex items-center gap-1.5">
+                                <i class="fa-brands fa-whatsapp"></i> Sapa Dina di WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Manis -->
+    <footer class="relative z-10 text-center pb-10 px-4 text-xs sm:text-sm text-slate-500">
+        <p class="font-semibold flex items-center justify-center gap-1.5">
+            Dibuat dengan <i class="fa-solid fa-heart text-pinky-500 animate-pulse"></i> oleh <span class="text-pinky-600 font-bold">Dina Permata Musdalifah</span> • Jurusan TKJ
+        </p>
+        <p class="text-xs text-slate-400 mt-1">dinapermatamusdalifah67@gmail.com | +62 831-6551-0021</p>
+    </footer>
+
+    <!-- Script Interaktif & Animasi Menggemaskan -->
+    <script>
+        // 1. Efek Ketik (Typing Effect) di Bagian Profil
+        const typingPhrases = [
+            "Lulusan Teknik Komputer & Jaringan (TKJ) 💻",
+            "Network Enthusiast & IT Support 🌸",
+            "Teliti Merakit Kabel, Kreatif Merias Wajah 💄✨"
+        ];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingElement = document.getElementById('typing-text');
+
+        function typeEffect() {
+            const currentPhrase = typingPhrases[phraseIndex];
+            
+            if (isDeleting) {
+                typingElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let speed = isDeleting ? 40 : 75;
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                speed = 2000; // Jeda sebelum menghapus
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % typingPhrases.length;
+                speed = 400;
+            }
+
+            setTimeout(typeEffect, speed);
+        }
+
+        // 2. Animasi Muncul Saat Di-Scroll (Scroll Reveal)
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+            const windowHeight = window.innerHeight;
+            reveals.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 60) {
+                    el.classList.add('active');
+                }
+            });
+        }
+
+        // 3. Partikel Lucu Mengikuti Klik / Sentuhan
+        const cuteSymbols = ['💖', '✨', '🌸', '🎀', '⭐', '💕'];
+        function createSparkle(x, y, count = 6) {
+            for (let i = 0; i < count; i++) {
+                const particle = document.createElement('span');
+                particle.className = 'sparkle-particle text-sm sm:text-base';
+                particle.textContent = cuteSymbols[Math.floor(Math.random() * cuteSymbols.length)];
+                
+                const angle = Math.random() * Math.PI * 2;
+                const velocity = 30 + Math.random() * 65;
+                const tx = Math.cos(angle) * velocity + 'px';
+                const ty = Math.sin(angle) * velocity - 20 + 'px';
+                
+                particle.style.left = x + 'px';
+                particle.style.top = y + 'px';
+                particle.style.setProperty('--tx', tx);
+                particle.style.setProperty('--ty', ty);
+                
+                document.body.appendChild(particle);
+                setTimeout(() => particle.remove(), 900);
+            }
+        }
+
+        document.addEventListener('click', (e) => {
+            createSparkle(e.clientX, e.clientY, 5);
+        });
+
+        // 4. Fungsi Salin Teks ke Clipboard + Notifikasi Toast
+        function copyText(text, message) {
+            const tempInput = document.createElement('input');
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.textContent = message;
+            
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 2800);
+        }
+
+        // 5. Fitur Kado Penyemangat Interaktif
+        let giftOpened = false;
+        const quotes = [
+            "\"Terima kasih sudah bekerja keras hari ini! Semoga setiap langkah, usaha, dan kebaikanmu selalu dilancarkan seperti koneksi jaringan tanpa hambatan, dan harimu selalu cerah bersinar. Jangan lupa tersenyum ya!\"",
+            "\"Kamu luar biasa sudah bertahan dan berjuang sejauh ini! Semoga segala urusan pekerjaan dan rezekimu dimudahkan, hatimu selalu tenang, dan hari-harimu penuh kebahagiaan manis! 🌸\"",
+            "\"Istirahat sejenak kalau lelah ya, kamu berhak bangga pada dirimu sendiri! Semoga hari ini membawa kabar baik dan senyuman indah untukmu. Semangat terus! 💖\"",
+            "\"Layaknya sinyal Wi-Fi full bar, semoga semangat dan kebahagiaanmu hari ini selalu penuh tanpa putus-putus! Tetap percaya diri dan bersinar ya! ✨\""
+        ];
+        let currentQuoteIdx = 0;
+
+        function openGiftBox() {
+            const container = document.getElementById('gift-container');
+            const card = document.getElementById('encouragement-card');
+            const hint = document.getElementById('gift-hint');
+            const btn = document.getElementById('gift-button');
+
+            if (!giftOpened) {
+                giftOpened = true;
+                container.classList.add('gift-opened');
+                hint.innerHTML = '<i class="fa-solid fa-sparkles"></i> Yeay! Kado Terbuka!';
+                
+                // Ledakan partikel hati & bintang meriah
+                const rect = btn.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                
+                for (let b = 0; b < 4; b++) {
+                    setTimeout(() => {
+                        createSparkle(
+                            centerX + (Math.random() - 0.5) * 100,
+                            centerY + (Math.random() - 0.5) * 60,
+                            12
+                        );
+                    }, b * 150);
+                }
+
+                // Tampilkan kartu ucapan dengan animasi halus
+                card.classList.remove('hidden');
+                setTimeout(() => {
+                    card.classList.remove('scale-90', 'opacity-0');
+                    card.classList.add('scale-100', 'opacity-100');
+                }, 250);
+            } else {
+                // Jika diklik lagi, beri efek sparkle tambahan
+                const rect = btn.getBoundingClientRect();
+                createSparkle(rect.left + rect.width / 2, rect.top + rect.height / 2, 10);
+            }
+        }
+
+        function changeQuote() {
+            currentQuoteIdx = (currentQuoteIdx + 1) % quotes.length;
+            const quoteEl = document.getElementById('encouragement-quote');
+            quoteEl.style.opacity = 0;
+            setTimeout(() => {
+                quoteEl.textContent = quotes[currentQuoteIdx];
+                quoteEl.style.opacity = 1;
+            }, 200);
+        }
+
+        // Inisialisasi saat halaman dimuat
+        window.addEventListener('load', () => {
+            typeEffect();
+            revealOnScroll();
+        });
+        window.addEventListener('scroll', revealOnScroll);
+    </script>
+</body>
+</html>
